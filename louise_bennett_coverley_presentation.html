@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louise Bennett-Coverley ("Miss Lou") - Jamaican Presentation</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Styling for Jamaican Theme & Kid-Friendly Aesthetics */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #15803d 0%, #facc15 50%, #16a34a 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1e293b;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Presentation Deck Container */
+        .presentation-deck {
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 1050px;
+            min-height: 620px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 4px solid #facc15;
+            position: relative;
+        }
+
+        /* Fullscreen Presentation Adjustments */
+        .presentation-deck:-webkit-full-screen {
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            border-radius: 0;
+            border: none;
+        }
+        .presentation-deck:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            border-radius: 0;
+            border: none;
+        }
+
+        /* Jamaican Bandana Plaid Accent Header Bar */
+        .bandana-bar {
+            height: 16px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #dc2626,
+                #dc2626 15px,
+                #facc15 15px,
+                #facc15 25px,
+                #16a34a 25px,
+                #16a34a 35px,
+                #ffffff 35px,
+                #ffffff 40px
+            );
+        }
+
+        /* Slide Content Area */
+        .slide {
+            display: none;
+            padding: 32px 36px;
+            flex-grow: 1;
+            animation: fadeIn 0.35s ease-in-out forwards;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Cards & Details Boxes */
+        .details-box {
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 1.05rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 800;
+            color: #b45309;
+            min-width: 135px;
+            flex-shrink: 0;
+        }
+
+        .detail-val {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            font-size: 1.12rem;
+            line-height: 1.5;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .bullet-list li::before {
+            content: "\f111";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            color: #16a34a;
+            font-size: 0.85rem;
+        }
+
+        /* Photo Frame styling */
+        .photo-frame {
+            border: 6px solid #ffffff;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background-color: #f8fafc;
+            border-top: 2px solid #e2e8f0;
+            padding: 16px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-nav {
+            background-color: #16a34a;
+            color: white;
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-nav:hover:not(:disabled) {
+            background-color: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .btn-nav:disabled {
+            background-color: #cbd5e1;
+            color: #94a3b8;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .btn-utility {
+            background-color: #ffffff;
+            border: 2px solid #cbd5e1;
+            color: #475569;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .btn-utility:hover {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            border-color: #94a3b8;
+        }
+
+        .dot-indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .dot-indicator.active {
+            background-color: #16a34a;
+            transform: scale(1.3);
+        }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+            }
+            .presentation-deck {
+                min-height: auto;
+                border-radius: 16px;
+            }
+            .slide {
+                padding: 18px 16px;
+            }
+            .bullet-list li {
+                font-size: 0.98rem;
+                margin-bottom: 12px;
+            }
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+                margin-bottom: 10px;
+                font-size: 0.95rem;
+            }
+            .detail-label {
+                min-width: auto;
+            }
+            .nav-bar {
+                padding: 12px 16px;
+            }
+        }
+
+        /* Print styles so slides export cleanly */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .presentation-deck {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+            }
+            .nav-bar {
+                display: none;
+            }
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-deck" id="presentation-deck">
+        <div class="bandana-bar"></div>
+
+        <!-- SLIDE 1: Title & Wireframe Basic Details -->
+        <div class="slide active" id="slide-1">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-2 border-slate-100 pb-4 mb-6 gap-3">
+                <div>
+                    <h1 class="text-3xl sm:text-5xl font-black text-emerald-800 tracking-tight leading-tight">
+                        Louise Bennett-Coverley
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-bold text-amber-600 mt-1">“Miss Lou”</p>
+                </div>
+                <span class="bg-amber-100 text-amber-900 border-2 border-amber-300 font-extrabold px-4 py-2 rounded-full text-sm sm:text-base flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-star text-amber-500"></i> Jamaican Cultural Icon
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center flex-grow">
+                <!-- Left: Main Portrait Frame -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="photo-frame w-full max-w-[320px] h-[320px] sm:h-[380px]">
+                        <img 
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-P4LIUH1PETrl9m6vwb6D1yfW2l5hKL9Yw3h_WuVCXvyp6YM3tDxU8qg&s=10" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x700/064e3b/ffffff?text=Miss+Lou';" 
+                            alt="Louise Bennett-Coverley - Miss Lou"
+                            class="w-full h-full object-cover object-top"
+                        >
+                    </div>
+                </div>
+
+                <!-- Right: Basic Details Box (Matched to Wireframe) -->
+                <div class="md:col-span-7">
+                    <div class="details-box">
+                        <div class="flex items-center gap-2.5 border-b-2 border-slate-200 pb-3 mb-4">
+                            <i class="fa-solid fa-address-card text-emerald-600 text-2xl"></i>
+                            <h2 class="text-xl sm:text-2xl font-bold text-emerald-900">Basic Details About Her</h2>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fa-solid fa-calendar-days text-amber-600 mr-1.5"></i> Lifespan:</span>
+                            <span class="detail-val">86 Years (Sept 7, 1919 – July 26, 2006)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fa-solid fa-crown text-amber-600 mr-1.5"></i> Known As:</span>
+                            <span class="detail-val">“Miss Lou” • Mother of Jamaican Culture</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fa-solid fa-location-dot text-amber-600 mr-1.5"></i> Birthplace:</span>
+                            <span class="detail-val">Kingston, Jamaica</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fa-solid fa-masks-theater text-amber-600 mr-1.5"></i> Professions:</span>
+                            <span class="detail-val">Poet, Storyteller, Folklorist &amp; Performer</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fa-solid fa-comments text-amber-600 mr-1.5"></i> Language:</span>
+                            <span class="detail-val">Jamaican Patois (Patwa) Champion</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fa-solid fa-tv text-amber-600 mr-1.5"></i> Famous Work:</span>
+                            <span class="detail-val">“Ring Ding” TV Show &amp; Dialect Poems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Essential About Miss Lou -->
+        <div class="slide" id="slide-2">
+            <div class="flex items-center gap-3 border-b-2 border-slate-100 pb-4 mb-6">
+                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-black">1</div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-emerald-900">About Miss Lou</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center flex-grow">
+                <div class="md:col-span-8">
+                    <ul class="bullet-list">
+                        <li><strong>Louise Bennett-Coverley</strong> was a beloved Jamaican poet, storyteller, and performer born on <strong>September 7, 1919</strong> in Kingston.</li>
+                        <li>Jamaicans lovingly called her <strong>“Miss Lou.”</strong></li>
+                        <li>She proudly wrote and performed in <strong>Jamaican Patois (Patwa)</strong>, showing everyone that Jamaican speech is a rich and beautiful language.</li>
+                        <li>She preserved Jamaican folk songs, proverbs, and traditional <strong>Anansi spider stories</strong> for future generations.</li>
+                        <li>For her grand service to Jamaica, she was awarded the <strong>Order of Merit (OM)</strong>—one of the nation's highest national honors!</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4 flex justify-center">
+                    <div class="photo-frame w-52 h-64 sm:w-64 sm:h-80">
+                        <img 
+                            src="https://mentomusicmuseum.com/wp-content/uploads/2025/04/miss-lou-louise-bennett-coverleyjamaican-cultural-icon.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x500/064e3b/ffffff?text=Miss+Lou';" 
+                            alt="Miss Lou portrait"
+                            class="w-full h-full object-cover object-top"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Children in Bandana & Why They Wear It -->
+        <div class="slide" id="slide-3">
+            <div class="flex items-center gap-3 border-b-2 border-slate-100 pb-4 mb-6">
+                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xl font-black">2</div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-emerald-900">Children in Bandana & Why We Wear It</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center flex-grow">
+                <!-- Left: Photo of Jamaican Children in Bandana Plaid -->
+                <div class="md:col-span-5 flex flex-col items-center gap-3">
+                    <div class="photo-frame w-full max-w-[340px] h-[260px] sm:h-[300px]">
+                        <img 
+                            src="https://cdn.thecultural.me/sob/jamaican-children-dressed-in-bandana-celebrate-heritage-week_5480b67e99ec4654b817276a11466dd9_g.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x450/dc2626/ffffff?text=Jamaican+Children+in+Bandana';" 
+                            alt="Jamaican children in traditional red bandana plaid dress celebrating culture"
+                            class="w-full h-full object-cover object-center"
+                        >
+                    </div>
+
+                    <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-3 text-center shadow-sm w-full max-w-[340px]">
+                        <p class="text-xs sm:text-sm font-extrabold text-amber-900">
+                            <i class="fa-solid fa-shirt text-amber-600 mr-1"></i> Bandana Plaid - National Costume
+                        </p>
+                        <p class="text-xs text-slate-700 font-semibold mt-0.5">
+                            Jamaican children wearing red, yellow &amp; white bandana plaid at Miss Lou Square in Gordon Town!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Bullets explaining WHY children wear bandana -->
+                <div class="md:col-span-7">
+                    <ul class="bullet-list">
+                        <li><strong>Ring Ding TV Show:</strong> Miss Lou hosted a famous television show where children sang songs and performed poems wearing traditional <strong>bandana plaid outfits</strong>.</li>
+                        <li><strong>Why Children Wear Bandana:</strong>
+                            <ul class="list-disc pl-5 mt-2 space-y-1.5 text-slate-700 font-semibold text-sm sm:text-base">
+                                <li>To celebrate <strong>Jamaica Day, Heritage Week</strong>, and school cultural events!</li>
+                                <li>To feel proud of Jamaican history and African heritage.</li>
+                                <li>To keep Miss Lou’s joyful spirit alive through song, dance, and poetry!</li>
+                            </ul>
+                        </li>
+                        <li class="mt-2">Miss Lou taught children that wearing bandana plaid and speaking Jamaican Patois was something to be <strong>truly proud of</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Her Lasting Legacy & "Walk Good" -->
+        <div class="slide" id="slide-4">
+            <div class="flex items-center gap-3 border-b-2 border-slate-100 pb-4 mb-6">
+                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-black">3</div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-emerald-900">Her Lasting Legacy</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center flex-grow">
+                <div class="md:col-span-8">
+                    <ul class="bullet-list">
+                        <li>Miss Lou passed away on <strong>July 26, 2006</strong>, but her legacy lives on in every school, song, and poem in Jamaica.</li>
+                        <li><span class="text-amber-600 font-bold">⭐ Her Message to Kids:</span> Always love, respect, and celebrate who you are and where you come from!</li>
+                        <li>She inspired generations of artists, singers, and writers across the Caribbean and around the world.</li>
+                    </ul>
+
+                    <!-- Golden Quote Banner -->
+                    <div class="mt-6 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-r-2xl shadow-sm">
+                        <p class="text-amber-900 font-black text-lg sm:text-2xl italic">
+                            “Walk Good, an' good duppy walk wid you!”
+                        </p>
+                        <p class="text-xs sm:text-sm text-amber-800 font-bold mt-1">
+                            — Miss Lou's famous Jamaican blessing wishing everyone safety, health, and peace.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 flex justify-center">
+                    <div class="photo-frame w-52 h-64 sm:w-60 sm:h-72">
+                        <img 
+                            src="https://images.squarespace-cdn.com/content/v1/584c0f01d2b8579f007d0ff0/8761f4dd-b38d-4118-96a6-cea6430bff54/P4.+Photo+Sep+11%2C+5+01+40+PM.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x500/064e3b/ffffff?text=Miss+Lou';" 
+                            alt="Miss Lou smiling legacy"
+                            class="w-full h-full object-cover object-top"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Controls Bar -->
+        <div class="nav-bar">
+            <button id="btn-prev" class="btn-nav" onclick="changeSlide(-1)">
+                <i class="fa-solid fa-chevron-left"></i> Previous
+            </button>
+
+            <!-- Slide Dots & Fullscreen Toggle -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
+                    <div class="dot-indicator active" onclick="goToSlide(1)"></div>
+                    <div class="dot-indicator" onclick="goToSlide(2)"></div>
+                    <div class="dot-indicator" onclick="goToSlide(3)"></div>
+                    <div class="dot-indicator" onclick="goToSlide(4)"></div>
+                </div>
+                <span id="slide-counter" class="text-xs sm:text-sm font-extrabold text-slate-600 min-w-[80px] text-center">
+                    Slide 1 of 4
+                </span>
+                <button class="btn-utility" onclick="toggleFullscreen()" title="Present in Fullscreen">
+                    <i class="fa-solid fa-expand mr-1"></i> Fullscreen
+                </button>
+            </div>
+
+            <button id="btn-next" class="btn-nav" onclick="changeSlide(1)">
+                Next <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 4;
+
+        function updateSlide() {
+            // Hide all slides
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                if (slide) slide.classList.remove('active');
+            }
+
+            // Show active slide
+            const activeSlide = document.getElementById(`slide-${currentSlide}`);
+            if (activeSlide) activeSlide.classList.add('active');
+
+            // Update buttons state
+            document.getElementById('btn-prev').disabled = (currentSlide === 1);
+            document.getElementById('btn-next').disabled = (currentSlide === totalSlides);
+
+            // Update slide counter
+            document.getElementById('slide-counter').innerText = `Slide ${currentSlide} of ${totalSlides}`;
+
+            // Update dots
+            const dots = document.querySelectorAll('.dot-indicator');
+            dots.forEach((dot, index) => {
+                if (index === currentSlide - 1) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 1) currentSlide = 1;
+            if (currentSlide > totalSlides) currentSlide = totalSlides;
+            updateSlide();
+        }
+
+        function goToSlide(slideNum) {
+            currentSlide = slideNum;
+            updateSlide();
+        }
+
+        function toggleFullscreen() {
+            const deck = document.getElementById('presentation-deck');
+            if (!document.fullscreenElement) {
+                if (deck.requestFullscreen) {
+                    deck.requestFullscreen();
+                } else if (deck.webkitRequestFullscreen) {
+                    deck.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Keyboard Arrow Navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                if (currentSlide < totalSlides) changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 1) changeSlide(-1);
+            }
+        });
+
+        // Mobile Touch Swipe Navigation
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', function(e) {
+            touchendX = e.changedTouches[0].screenX;
+            if (touchendX < touchstartX - 40 && currentSlide < totalSlides) {
+                changeSlide(1);
+            }
+            if (touchendX > touchstartX + 40 && currentSlide > 1) {
+                changeSlide(-1);
+            }
+        }, false);
+
+        // Initialize presentation on load
+        window.onload = function() {
+            updateSlide();
+        };
+    </script>
+</body>
+</html>
